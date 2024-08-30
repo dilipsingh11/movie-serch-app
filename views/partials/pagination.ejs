@@ -1,0 +1,19 @@
+<!-- views/partials/pagination.ejs -->
+
+<div class="pagination">
+    <% if (currentPage > 1) { %>
+        <a href="?s=<%= query %>&page=<%= currentPage - 1 %>" class="page-link">Previous</a>
+    <% } %>
+
+    <% for (let i = 1; i <= totalPages; i++) { %>
+        <% if (i === currentPage) { %>
+            <span class="page-link active"><%= i %></span>
+        <% } else { %>
+            <a href="?s=<%= query %>&page=<%= i %>" class="page-link"><%= i %></a>
+        <% } %>
+    <% } %>
+
+    <% if (currentPage < totalPages) { %>
+        <a href="?s=<%= query %>&page=<%= currentPage + 1 %>" class="page-link">Next</a>
+    <% } %>
+</div>
